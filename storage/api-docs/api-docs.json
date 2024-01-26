@@ -1,0 +1,149 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test swagger",
+        "description": "Test swagger",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login user",
+                "description": "Logs in a user using the provided credentials.",
+                "operationId": "09c1cdfe33bfbe0710861ac50c0adaec",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "description": "User login identifier",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "User password",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful login"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "register user",
+                "description": "Register in a user using the provided credentials.",
+                "operationId": "08895790736612da345bc0606cefe61b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "User login identifier",
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "description": "User login identifier",
+                                        "type": "string"
+                                    },
+                                    "patronymic": {
+                                        "description": "User login identifier",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "User login identifier",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "User login identifier",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "User password",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful login"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/product": {
+            "get": {
+                "tags": [
+                    "Note"
+                ],
+                "operationId": "ebe751a235bb8fec01bb69db7d7487cb",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search term for filtering products",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Search term for filtering products",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    }
+}
